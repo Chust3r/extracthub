@@ -1,6 +1,6 @@
 'use server'
 
-import { webkit, Page } from 'playwright'
+import { chromium, Page } from 'playwright'
 
 import { Config, InfoData, SResponse } from '@/types/scraper-types'
 
@@ -176,7 +176,7 @@ const getData = async (page: Page, config: Config) => {
 export const scraper = async (url: string, config: Config) => {
 	//→ Default config
 
-	const browser = await webkit.launch({})
+	const browser = await chromium.launch({ headless: true })
 	const context = await browser.newContext()
 
 	const page = await context.newPage()

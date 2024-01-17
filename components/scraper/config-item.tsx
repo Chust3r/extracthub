@@ -1,7 +1,7 @@
 'use client'
 
-import { Button } from './ui/button'
-import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
+import { Button } from '../ui/button'
+import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import {
 	Form,
 	FormField,
@@ -10,16 +10,12 @@ import {
 	FormMessage,
 	FormControl,
 	FormDescription,
-} from './ui/form'
-import Cog from '@/icons/cog'
-import { Input } from './ui/input'
+} from '../ui/form'
+import { Input } from '../ui/input'
 import { UseFormReturn } from 'react-hook-form'
 import { FormValues } from '@/types/scraper-types'
-import Attributes from '@/icons/attributes'
-import { Switch } from './ui/switch'
-import Trash from '@/icons/trash'
-import Multiple from '@/icons/multiple'
-import Bolt from '@/icons/bolt'
+import { Switch } from '../ui/switch'
+import { Cog, Attributes, Bolt, Multiple, Trash } from '@/icons'
 
 interface ComponentProps {
 	index: number
@@ -27,22 +23,17 @@ interface ComponentProps {
 	onRemove: () => void
 }
 
-const classInput = 'bg-neutral-900/50 backdrop-blur border'
-
 const ConfigItem = ({ index, form, onRemove }: ComponentProps) => {
 	return (
 		<Popover>
 			<PopoverTrigger asChild>
-				<Button
-					variant='secondary'
-					className='bg-neutral-900/50 backdrop-blur border'
-				>
+				<Button variant='secondary' className='custom'>
 					<Cog className='w-4 h-4' />
 				</Button>
 			</PopoverTrigger>
-			<PopoverContent className='flex flex-col gap-4 relative overflow-hidden'>
-				<span className='w-full h-20 bg-gradient-radial from-green-500/50 to-primary opacity-20 absolute blur-3xl -z-[1] top-20'></span>
-				<div className='flex justify-between items-center'>
+			<PopoverContent className='relative flex flex-col gap-4 overflow-hidden select-none'>
+				<span className='w-full h-20 bg-gradient-radial from-gray-500/50 to-stone-500 opacity-50 absolute blur-3xl -z-[1] top-20'></span>
+				<div className='flex items-center justify-between'>
 					<p className='font-medium'>Advanced config</p>
 					<Button variant='secondary' onClick={onRemove}>
 						<Trash className='w-4 h-4' />
@@ -54,7 +45,7 @@ const ConfigItem = ({ index, form, onRemove }: ComponentProps) => {
 						render={({ field }) => {
 							return (
 								<FormItem className='col-span-5'>
-									<FormLabel className='flex gap-2 items-center'>
+									<FormLabel className='flex items-center gap-2'>
 										<Attributes className='w-4 h-4' />
 										<span>Attributes</span>
 									</FormLabel>
@@ -62,7 +53,7 @@ const ConfigItem = ({ index, form, onRemove }: ComponentProps) => {
 										<Input
 											placeholder='selector'
 											{...field}
-											className={classInput}
+											className='custom'
 										/>
 									</FormControl>
 									<FormMessage />
@@ -74,13 +65,13 @@ const ConfigItem = ({ index, form, onRemove }: ComponentProps) => {
 						name={`selectors.${index}.multiple`}
 						render={({ field }) => {
 							return (
-								<FormItem className='col-span-5 flex'>
+								<FormItem className='flex col-span-5'>
 									<FormLabel htmlFor='switch'>
 										<FormDescription className='flex items-center gap-2'>
 											<Multiple className='w-8 h-8' />
 											<span>
-												Enable multiple selection of items, default
-												limit is 5
+												Enable multiple selection of items, return
+												an Array
 											</span>
 										</FormDescription>
 									</FormLabel>
@@ -104,7 +95,7 @@ const ConfigItem = ({ index, form, onRemove }: ComponentProps) => {
 					render={({ field }) => {
 						return (
 							<FormItem className='col-span-5'>
-								<FormLabel className='flex gap-2 items-center'>
+								<FormLabel className='flex items-center gap-2'>
 									<Bolt className='w-4 h-4' />
 									<span>Limit</span>
 								</FormLabel>
@@ -112,7 +103,7 @@ const ConfigItem = ({ index, form, onRemove }: ComponentProps) => {
 									<Input
 										placeholder='limit'
 										{...field}
-										className={classInput}
+										className='custom'
 									/>
 								</FormControl>
 								<FormMessage />

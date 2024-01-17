@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 
-const Plus = ({ className = '', ...props }) => {
+export const Plus = ({ className = '', ...props }) => {
 	return (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'

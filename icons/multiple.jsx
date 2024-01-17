@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 
-const Multiple = ({ className = '', ...props }) => {
+export const Multiple = ({ className = '', ...props }) => {
 	return (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'

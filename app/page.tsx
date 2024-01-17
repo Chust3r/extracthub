@@ -1,10 +1,16 @@
-import Scraper from '@/components/scraper'
+import Footer from '@/components/footer'
+import Landing from '@/components/landing'
+import Showcase from '@/components/showcase'
 
 const Page = () => {
 	return (
-		<main className='h-screen w-full flex flex-col'>
-			<Scraper />
-		</main>
+		<>
+			<main className='flex flex-col w-full h-full'>
+				<Landing />
+				<Showcase />
+			</main>
+			<Footer />
+		</>
 	)
 }
 
