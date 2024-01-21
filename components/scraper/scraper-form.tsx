@@ -91,7 +91,7 @@ const ScraperForm = () => {
 	}
 
 	return (
-		<section className='relative h-full p-5 overflow-hidden overflow-y-auto'>
+		<section className='relative h-full p-3 overflow-hidden overflow-y-auto	'>
 			<BackgroundPattern />
 			<Form {...form}>
 				<form
@@ -99,12 +99,6 @@ const ScraperForm = () => {
 					autoComplete='off'
 					className='flex flex-col h-full gap-4 '
 				>
-					<Link href='/'>
-						<h2 className='text-xl font-medium'>
-							Extract
-							<span className='text-green-500'>Hub</span>
-						</h2>
-					</Link>
 					<div className='flex gap-3 '>
 						<FormField
 							name='url'
@@ -132,7 +126,7 @@ const ScraperForm = () => {
 							)}
 						</Button>
 					</div>
-					<div className='flex flex-col gap-2'>
+					<div className='flex flex-col gap-2 pb-5 '>
 						<div className='grid items-center w-full grid-cols-10 gap-3 text-sm font-medium'>
 							<p className='flex items-center w-full col-span-4 gap-2'>
 								<Tag className='w-3 h-3' />

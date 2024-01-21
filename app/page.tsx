@@ -1,5 +1,5 @@
 import Footer from '@/components/footer'
-import Landing from '@/components/landing'
+import Landing from '@/components/hero'
 import Showcase from '@/components/showcase'
 
 const Page = () => {
