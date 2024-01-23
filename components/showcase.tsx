@@ -25,7 +25,7 @@ const Showcase = () => {
 					access to a wealth of structured information across diverse
 					sources. Its user-friendly interface and powerful features make
 					data extraction a swift and efficient process, setting it apart
-					in the realm of web scraping tools
+					in the realm of web scraping tool
 				</p>
 			</div>
 		</section>
