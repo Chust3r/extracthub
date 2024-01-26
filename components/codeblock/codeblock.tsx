@@ -1,16 +1,22 @@
 'use client'
 
-import { store } from '@/stores/scrapper-store'
-import { store as codeStore, updateStore } from '@/stores/config-store'
+import { store, updateStore } from '@/stores/scrapper-store'
+import { store as codeStore } from '@/stores/config-store'
 import { useStore } from '@nanostores/react'
 import Code from 'react-syntax-highlighter'
 import { a11yDark as style } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import CopyToClipboard from '../copy-to-clipboard'
-
+import { useEffect } from 'react'
 
 const Codeblock = () => {
 	const { isLoading, data } = useStore(store)
 	const { showLineNumbers, wrapLongLines } = useStore(codeStore)
+
+	useEffect(() => {
+		return () => {
+			updateStore({ isLoading: false, data: {} })
+		}
+	}, [])
 
 	return (
 		<section className='relative w-full h-full px-2 py-3 bg-gradient-radial from-neutral-900/60'>

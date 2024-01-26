@@ -1,7 +1,16 @@
-const BackgroundPattern = () => {
+import { cn } from '@/lib/utils'
+
+interface Props {
+	className?: string
+}
+
+const BackgroundPattern = ({ className }: Props) => {
 	return (
 		<svg
-			className='absolute inset-0 -z-10 h-full w-full stroke-white/5 [mask-image:radial-gradient(75%_90%_at_top_center,white,transparent)]'
+			className={cn(
+				'absolute inset-0 -z-10 h-full w-full stroke-white/5 [mask-image:radial-gradient(75%_90%_at_top_center,white,transparent)]',
+				className
+			)}
 			aria-hidden='true'
 		>
 			<defs>

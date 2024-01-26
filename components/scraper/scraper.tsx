@@ -11,6 +11,7 @@ import { store } from '@/stores/config-store'
 
 const Scraper = () => {
 	const { orientation } = useStore(store)
+	
 
 	return (
 		<ResizablePanelGroup

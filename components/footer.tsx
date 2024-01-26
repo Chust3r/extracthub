@@ -1,15 +1,14 @@
-import { Heart } from '@/icons'
 import React from 'react'
+import BackgroundPattern from './background-pattern'
 
 const Footer = () => {
 	return (
-		<footer className='flex justify-center py-5 text-xs font-medium text-foreground/50'>
-			<p className='flex items-center justify-center gap-2'>
-				<span>Made with</span>
-				<span>
-					<Heart className='w-3 h-3 fill-red-500 stroke-red-500' />
-				</span>
-				<span>by Chuster</span>
+		<footer className='flex justify-center py-10 text-xs font-medium text-foreground/70 relative '>
+			<BackgroundPattern className='rotate-180' />
+			<span className='absolute -z-[1] h-14 w-1/2 bg-gradient-radial from-neutral-800 to-slate-500/50 opacity-20 blur-3xl animate-pulse'></span>
+			<p className='flex items-center justify-center'>
+				© 2023 Extract<span className='text-primary'>Hub</span> - All rights
+				reserved.
 			</p>
 		</footer>
 	)

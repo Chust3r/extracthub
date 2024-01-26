@@ -176,7 +176,7 @@ const getData = async (page: Page, config: Config) => {
 export const scraper = async (url: string, config: Config) => {
 	//→ Default config
 
-	const browser = await chromium.launch({ headless: true })
+	const browser = await chromium.launch({ headless: true, slowMo: 5000 })
 	const context = await browser.newContext()
 
 	const page = await context.newPage()
@@ -193,6 +193,7 @@ export const scraper = async (url: string, config: Config) => {
 
 	// → Close all
 
+	await context.close()
 	await browser.close()
 
 	return data

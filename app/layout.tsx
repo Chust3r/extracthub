@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Script from 'next/script'
+
 
 interface LayoutProps {
 	children: React.ReactNode
@@ -9,6 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
 	return (
 		<html lang='en' className='dark'>
 			<body>{children}</body>
+			<Script src='https://unpkg.com/tailwindcss-intersect@1.x.x/dist/observer.min.js' />
 		</html>
 	)
 }

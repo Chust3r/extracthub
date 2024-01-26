@@ -18,8 +18,7 @@ import { scraper } from '@/actions/playwright-scraper'
 import { FormValues, Field } from '@/types/scraper-types'
 import { useStore } from '@nanostores/react'
 import ConfigItem from './config-item'
-import BackgroundPattern from '../background-pattern'
-import Link from 'next/link'
+import Navbar from '../navbar'
 
 const defaultValues: Field[] = [
 	{
@@ -91,13 +90,13 @@ const ScraperForm = () => {
 	}
 
 	return (
-		<section className='relative h-full p-3 overflow-hidden overflow-y-auto	'>
-			<BackgroundPattern />
+		<section className='relative h-fit max-h-full px-3 overflow-hidden overflow-y-auto	'>
+			<Navbar />
 			<Form {...form}>
 				<form
 					onSubmit={handleSubmit(onSubmit)}
 					autoComplete='off'
-					className='flex flex-col h-full gap-4 '
+					className='flex flex-col h-full gap-4'
 				>
 					<div className='flex gap-3 '>
 						<FormField
