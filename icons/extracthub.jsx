@@ -10,16 +10,15 @@ export const ExtractHub = ({ className = '', ...props }) => {
 			viewBox='0 0 128.00 128.00'
 			aria-hidden='true'
 			role='img'
-			class='iconify iconify--noto'
 			preserveAspectRatio='xMidYMid meet'
 			fill='#ffffff'
 		>
-			<g id='SVGRepo_bgCarrier' stroke-width='0' />
+			<g id='SVGRepo_bgCarrier' strokeWidth='0' />
 
 			<g
 				id='SVGRepo_tracerCarrier'
-				stroke-linecap='round'
-				stroke-linejoin='round'
+				strokeLinecap='round'
+				strokeLinejoin='round'
 			/>
 
 			<g id='SVGRepo_iconCarrier'>

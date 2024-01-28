@@ -21,4 +21,5 @@ export * from './wordpress'
 export * from './adidas'
 export * from './nike'
 export * from './npm'
+export * from "./medium"
 

@@ -7,25 +7,28 @@ import {
 	Amazon,
 	Dev,
 	Google,
+	Medium,
 	Nike,
 	Npm,
 	Wordpress,
 	Youtube,
 } from '@/icons'
+import Bento from './bento'
 const Showcase = () => {
 	return (
-		<section className='w-full py-5 max-w-6xl mx-auto flex flex-col gap-20 px-9'>
+		<section className='flex flex-col w-full max-w-6xl gap-20 py-5 mx-auto px-9'>
 			<Image
 				src={img1}
 				alt=''
 				width={1080}
 				height={519}
 				quality={100}
-				className='overflow-hidden rounded-md mx-auto intersect:animate-fade-up intersect:delay-1000'
+				className='mx-auto overflow-hidden rounded-md intersect:animate-fade-up intersect:delay-1000'
 				priority
+				sizes='(min-width:300px)'
 			/>
 
-			<div className='flex flex-col md:flex-row gap-5 md:gap-10 w-full justify-between'>
+			<div className='flex flex-col justify-between w-full gap-5 md:flex-row md:gap-10'>
 				<h2 className='text-4xl  w-full md:w-[80ch] text-balance font-medium intersect:animate-fade-right intersect:animate-delay-300'>
 					Who said that <span className='text-primary'>extracting</span>{' '}
 					data is boring?
@@ -40,18 +43,19 @@ const Showcase = () => {
 				</p>
 			</div>
 
-			<div>
-				<Ticker >
-					<Youtube className='w-14 h-14' />
-					<Google className='w-14 h-14' />
-					<Amazon className='w-28 h-14' />
-					<Dev className='w-14 h-14' />
-					<Wordpress className='w-14 h-14' />
-					<Adidas className='w-14 h-14' />
-					<Nike className='w-14 h-14' />
-					<Npm className='w-14 h-14' />
-				</Ticker>
-			</div>
+			<Ticker>
+				<Medium className='w-14 h-14' />
+				<Youtube className='w-14 h-14' />
+				<Google className='w-14 h-14' />
+				<Amazon className='w-28 h-14' />
+				<Dev className='w-14 h-14' />
+				<Wordpress className='w-14 h-14' />
+				<Adidas className='w-14 h-14' />
+				<Nike className='w-14 h-14' />
+				<Npm className='w-14 h-14' />
+			</Ticker>
+
+			<Bento />
 		</section>
 	)
 }

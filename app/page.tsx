@@ -6,7 +6,7 @@ import Showcase from '@/components/showcase'
 const Page = () => {
 	return (
 		<>
-			<main className='flex flex-col w-full h-full pb-10'>
+			<main className='flex flex-col w-full h-full pb-10 antialiased'>
 				<BackgroundPattern/>
 				<Landing />
 				<Showcase />

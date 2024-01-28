@@ -20,4 +20,4 @@ export const Multiple = ({ className = '', ...props }) => {
 	)
 }
 
-export default Multiple
+

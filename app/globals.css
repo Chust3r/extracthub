@@ -95,7 +95,7 @@
 }
 
 .ticker-slide {
-  @apply animate-ticker flex;
+  @apply flex animate-ticker;
 }
 
 .ticker-slide>* {
@@ -161,11 +161,6 @@
   font-style: italic;
 }
 
-
-* {
-  scrollbar-width: thin;
-  scrollbar-color: transparent;
-}
 
 *::-webkit-scrollbar {
   height: 5px;            

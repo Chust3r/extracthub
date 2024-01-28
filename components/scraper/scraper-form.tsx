@@ -13,7 +13,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form'
 import { store, updateStore } from '@/stores/scrapper-store'
 import { adapater } from '@/lib/scraper-adapter'
-import { Tag, Key, Plus } from '@/icons'
+import { Tag, Key, Plus, Cog } from '@/icons'
 import { scraper } from '@/actions/playwright-scraper'
 import { FormValues, Field } from '@/types/scraper-types'
 import { useStore } from '@nanostores/react'
@@ -90,7 +90,7 @@ const ScraperForm = () => {
 	}
 
 	return (
-		<section className='relative h-fit max-h-full px-3 overflow-hidden overflow-y-auto	'>
+		<section className='relative max-h-full px-3 overflow-hidden overflow-y-auto h-fit '>
 			<Navbar />
 			<Form {...form}>
 				<form
@@ -125,7 +125,7 @@ const ScraperForm = () => {
 							)}
 						</Button>
 					</div>
-					<div className='flex flex-col gap-2 pb-5 '>
+					<div className='flex flex-col gap-3 pb-5 '>
 						<div className='grid items-center w-full grid-cols-10 gap-3 text-sm font-medium'>
 							<p className='flex items-center w-full col-span-4 gap-2'>
 								<Tag className='w-3 h-3' />
@@ -135,14 +135,10 @@ const ScraperForm = () => {
 								<Key className='w-3 h-3' />
 								<span>Selector</span>
 							</p>
-							<Button
-								type='button'
-								variant='secondary'
-								onClick={addNewField}
-								className='max-w-full custom'
-							>
-								<Plus className='w-4 h-4' />
-							</Button>
+							<p className='flex items-center w-full gap-2'>
+								<Cog className='w-3 h-3' />
+								<span>Options</span>
+							</p>
 						</div>
 						{fields.map((f, i) => (
 							<div key={f.id} className='grid w-full grid-cols-10 gap-3'>
@@ -185,6 +181,15 @@ const ScraperForm = () => {
 								/>
 							</div>
 						))}
+						<Button
+							type='button'
+							variant='secondary'
+							onClick={addNewField}
+							className='flex max-w-full gap-2 custom'
+						>
+							<Plus className='w-4 h-4' />
+							Add field
+						</Button>
 					</div>
 				</form>
 			</Form>
