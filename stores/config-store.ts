@@ -6,14 +6,14 @@ interface Store {
 	orientation: 'horizontal' | 'vertical'
 }
 
-export const store = map<Store>({
-	showLineNumbers: true,
+export const ConfigStore = map<Store>({
+	showLineNumbers: false,
 	wrapLongLines: false,
-	orientation: 'vertical',
+	orientation: 'horizontal',
 })
 
 type storeKey = keyof Store
 
 export const updateStore = (key: storeKey, value: any) => {
-	store.setKey(key, value)
+	ConfigStore.setKey(key, value)
 }

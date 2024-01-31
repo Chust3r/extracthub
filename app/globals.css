@@ -3,35 +3,10 @@
 @tailwind utilities;
  
 
-
-
-
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 142.1 76.2% 36.3%;
-    --primary-foreground: 355.7 100% 97.3%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 142.1 76.2% 36.3%;
-    --radius: 1rem;
-  }
-
-  .dark {
+    --duration: 4s;
+      --ticker_duration: 40s;
     --background: 20 14.3% 4.1%;
     --foreground: 0 0% 95%;
     --card: 24 9.8% 10%;
@@ -46,16 +21,14 @@
     --muted-foreground: 240 5% 64.9%;
     --accent: 12 6.5% 15.1%;
     --accent-foreground: 0 0% 98%;
-    --destructive: rgba(255, 255, 255, 0.712);
+    --destructive: 210 20% 98%;
     --destructive-foreground: 0 85.7% 97.3%;
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 142.4 71.8% 29.2%;
+    --radius: 1.5rem;
   }
 }
-
-
-
 
 @layer base {
   * {
@@ -70,9 +43,24 @@
 }
 
 .ticker {
-  @apply relative flex w-full overflow-hidden;
+  display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
 }
 
+.ticker:hover>* {
+  animation-play-state: paused;
+}
+
+.ticker-slide {
+  display: flex;
+  animation: var(--ticker_duration) ticker linear infinite;
+}
+
+.ticker-slide>* {
+  @apply mx-10 my-2;
+}
 .ticker::before {
   position: absolute;
   content: "";
@@ -81,7 +69,6 @@
   height: 100%;
   left: 0;
   z-index: 2;
-
 }
 
 .ticker::after {
@@ -92,14 +79,6 @@
   height: 100%;
   right: 0;
   z-index: 2;
-}
-
-.ticker-slide {
-  @apply flex animate-ticker;
-}
-
-.ticker-slide>* {
-  @apply mx-10 my-2;
 }
 
 .animate-ticker {
@@ -135,10 +114,54 @@
   border-left-color: transparent;
   width: 36px;
   height: 36px;
-  animation: spin89345 1s linear infinite;
+  animation: spin 1s linear infinite;
+  }
+  
+  
+  
+  .hljs-attr {
+    color: #c678dd;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  
+  .hljs-string {
+    color: #ffdd59;
+    font-style: italic;
+  }
+  
+  .shinny {
+    position: relative;
+    overflow: hidden;
+    border: none;
+  }
+  
+  .shinny::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.8rem;
+    height: 1.8rem;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    animation: shinny var(--duration) linear infinite;
+    filter: blur(20px);
+    margin: 3px;
+    z-index: -1;
+  }
+  
+  .bg-flow {
+    background-image: linear-gradient(to right, #FFEBCD, #E3518E, #FFCD9E, #A073FF, #EB73FF);
+    background-size: 400%;
+  }
+  
+  .animate-flow {
+    animation: flow 6s linear infinite;
 }
 
-@keyframes spin89345 {
+@keyframes spin {
   0% {
     transform: rotate(0deg);
   }
@@ -148,17 +171,42 @@
   }
 }
 
+@keyframes flow {
+  0% {
+    background-position: 0 50%;
+  }
 
+  50% {
+    background-position: 100% 50%;
+  }
 
-.hljs-attr {
-  color:  #c678dd;
-  font-weight: bold;
-  letter-spacing: 0.5px;
+  100% {
+    background-position: 0 50%;
+  }
+
 }
 
-.hljs-string{
-  color:#ffdd59;
-  font-style: italic;
+
+@keyframes shinny {
+  0% {
+    left: 0%;
+    top: 0%;
+  }
+
+                                                                                                                                35% {
+                                                                                                                                  left: 100%;
+                                                                                                                                  top: 0%;
+                                                                                                                                }
+
+                                                                                                                                50% {
+                                                                                                                                  left: 100%;
+                                                                                                                                  top: 100%;
+                                                                                                                                }
+
+                                                                                                                                85% {
+                                                                                                                                  left: 0%;
+                                                                                                                                  top: 100%;
+                                                                                                                                }
 }
 
 
@@ -177,10 +225,6 @@
   background-color: rgba(68, 64, 60, 0.5);
   border-radius: 20px;
 }
-
-
-
-
 
 
 

@@ -5,15 +5,15 @@ import {
 	FormItem,
 	FormControl,
 	FormMessage,
-} from '@/components/ui/form'
-import * as yup from 'yup'
-import { Button } from '../ui/button'
-import { Input } from '../ui/input'
+	Input,
+	Button,
+} from '@/components/ui'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { schemaValidation } from './scraper-schema'
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form'
-import { store, updateStore } from '@/stores/scrapper-store'
+import { ScraperStore, updateStore } from '@/stores/scrapper-store'
 import { adapater } from '@/lib/scraper-adapter'
-import { Tag, Key, Plus, Cog } from '@/icons'
+import { Tag, Key, Plus } from '@/icons'
 import { scraper } from '@/actions/playwright-scraper'
 import { FormValues, Field } from '@/types/scraper-types'
 import { useStore } from '@nanostores/react'
@@ -30,29 +30,8 @@ const defaultValues: Field[] = [
 	},
 ]
 
-const schemaValidation = yup.object().shape({
-	url: yup.string().url('Enter a valid URL').required('Field required'),
-	selectors: yup
-		.array()
-		.of(
-			yup.object().shape({
-				key: yup.string().required('Field required'),
-				selector: yup.string().required('Field required'),
-				attributes: yup.string().required('Field required'),
-				multiple: yup.boolean().required(),
-				limit: yup
-					.number()
-					.integer('Only integer numbers')
-					.default(5)
-					.required()
-					.typeError('Only numbers'),
-			})
-		)
-		.required(),
-})
-
 const ScraperForm = () => {
-	const { isLoading } = useStore(store)
+	const { isLoading } = useStore(ScraperStore)
 
 	const form = useForm<FormValues>({
 		defaultValues: {
@@ -114,16 +93,18 @@ const ScraperForm = () => {
 								</FormItem>
 							)}
 						/>
-						<Button
-							disabled={isLoading}
-							className='text-white bg-green-500'
-						>
-							{isLoading ? (
-								<span className='loader !w-4 !h-4'></span>
-							) : (
-								<span>Scrap</span>
-							)}
-						</Button>
+						
+							<Button
+								disabled={isLoading}
+								className='text-white border-none bg-primary'
+							>
+								{isLoading ? (
+									<span className='loader !w-4 !h-4'></span>
+								) : (
+									<span>Scrap</span>
+								)}
+							</Button>
+					
 					</div>
 					<div className='flex flex-col gap-3 pb-5 '>
 						<div className='grid items-center w-full grid-cols-10 gap-3 text-sm font-medium'>
@@ -134,10 +115,6 @@ const ScraperForm = () => {
 							<p className='flex items-center w-full col-span-5 gap-2'>
 								<Key className='w-3 h-3' />
 								<span>Selector</span>
-							</p>
-							<p className='flex items-center w-full gap-2'>
-								<Cog className='w-3 h-3' />
-								<span>Options</span>
 							</p>
 						</div>
 						{fields.map((f, i) => (
@@ -185,7 +162,7 @@ const ScraperForm = () => {
 							type='button'
 							variant='secondary'
 							onClick={addNewField}
-							className='flex max-w-full gap-2 custom'
+							className='flex max-w-full gap-2 custom '
 						>
 							<Plus className='w-4 h-4' />
 							Add field

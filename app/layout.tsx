@@ -9,7 +9,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
 	return (
-		<html lang='en' className='dark'>
+		<html lang='en'>
 			<body>{children}</body>
 			<Script src='https://unpkg.com/tailwindcss-intersect@1.x.x/dist/observer.min.js' />
 		</html>

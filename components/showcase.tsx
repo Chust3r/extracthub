@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import img1 from '@/public/images/1.png'
+import img2 from '@/public/images/2.png'
 import Ticker from './ticker'
 import {
 	Adidas,
@@ -13,33 +14,54 @@ import {
 	Wordpress,
 	Youtube,
 } from '@/icons'
-import Bento from './bento'
+import ShinnyWrapper from './shinny-wrapper'
+
 const Showcase = () => {
 	return (
 		<section className='flex flex-col w-full max-w-6xl gap-20 py-5 mx-auto px-9'>
-			<Image
-				src={img1}
-				alt=''
-				width={1080}
-				height={519}
-				quality={100}
-				className='mx-auto overflow-hidden rounded-md intersect:animate-fade-up intersect:delay-1000'
-				priority
-				sizes='(min-width:300px)'
-			/>
+			<ShinnyWrapper
+				className='mx-auto overflow-hidden rounded-md intersect:animate-fade-up intersect:delay-1000 intersect-once'
+				style={{
+					'--duration': '30s',
+				}}
+			>
+				<Image
+					src={img1}
+					alt=''
+					width={1080}
+					height={519}
+					quality={100}
+					priority
+					sizes='(min-width:18.75rem)'
+					className='hidden overflow-hidden rounded-md md:block'
+				/>
+				<Image
+					src={img2}
+					alt=''
+					width={1080}
+					height={519}
+					quality={100}
+					priority
+					sizes='(min-width:18.75rem)'
+					className='block overflow-hidden rounded-md md:hidden'
+				/>
+			</ShinnyWrapper>
 
 			<div className='flex flex-col justify-between w-full gap-5 md:flex-row md:gap-10'>
-				<h2 className='text-4xl  w-full md:w-[80ch] text-balance font-medium intersect:animate-fade-right intersect:animate-delay-300'>
-					Who said that <span className='text-primary'>extracting</span>{' '}
+				<h2 className='text-4xl text-foreground/70  w-full md:w-[80ch] text-balance font-medium intersect:animate-fade-right intersect:animate-delay-300 intersect-once'>
+					Who said that{' '}
+					<span className='text-transparent bg-flow animate-flow bg-clip-text'>
+						extracting
+					</span>{' '}
 					data is boring?
 				</h2>
-				<p className='text-pretty text-foreground/70 intersect:animate-fade-left intersect:animate-delay-300'>
-					ExtractHub stands out as an innovative platform due to its
-					advanced data extraction capabilities, offering users seamless
-					access to a wealth of structured information across diverse
-					sources. Its user-friendly interface and powerful features make
-					data extraction a swift and efficient process, setting it apart
-					in the realm of web scraping tools
+				<p className='text-pretty text-foreground/50 intersect:animate-fade-left intersect:animate-delay-300 intersect-once'>
+					ExtractHub revolutionizes data extraction from the web, providing
+					a comprehensive solution that navigates the digital landscape
+					with efficiency. Seamlessly collecting, organizing, and
+					delivering valuable insights, ExtractHub empowers your analytics
+					with speed, precision, and ease, making information discovery a
+					seamless journey.
 				</p>
 			</div>
 
@@ -55,7 +77,12 @@ const Showcase = () => {
 				<Npm className='w-14 h-14' />
 			</Ticker>
 
-			<Bento />
+			<h3 className='ml-auto text-3xl font-medium text-foreground/70 intersect:animate-fade-left intersect:animate-delay-300 text-balance intersect-once'>
+				Extract data from{' '}
+				<span className='text-transparent uppercase bg-flow animate-flow bg-clip-text'>
+					anywhere
+				</span>
+			</h3>
 		</section>
 	)
 }

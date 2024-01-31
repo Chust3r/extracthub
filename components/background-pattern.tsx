@@ -16,8 +16,8 @@ const BackgroundPattern = ({ className }: Props) => {
 			<defs>
 				<pattern
 					id='hero'
-					width='80'
-					height='80'
+					width='45'
+					height='45'
 					x='50%'
 					y='-1'
 					patternUnits='userSpaceOnUse'

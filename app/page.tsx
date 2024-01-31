@@ -1,6 +1,6 @@
 import BackgroundPattern from '@/components/background-pattern'
 import Footer from '@/components/footer'
-import Landing from '@/components/hero'
+import Hero from '@/components/hero'
 import Showcase from '@/components/showcase'
 
 const Page = () => {
@@ -8,7 +8,7 @@ const Page = () => {
 		<>
 			<main className='flex flex-col w-full h-full pb-10 antialiased'>
 				<BackgroundPattern/>
-				<Landing />
+				<Hero />
 				<Showcase />
 			</main>
 			<Footer/>

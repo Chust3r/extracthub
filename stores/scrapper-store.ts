@@ -5,12 +5,12 @@ interface Store {
 	isLoading: boolean
 }
 
-export const store = map<Store>({
+export const ScraperStore = map<Store>({
 	data: {},
 	isLoading: false,
 })
 
 export const updateStore = ({ data, isLoading = false }: Store) => {
-	store.setKey('data', data || store.get().data)
-	store.setKey('isLoading', isLoading)
+	ScraperStore.setKey('data', data || ScraperStore.get().data)
+	ScraperStore.setKey('isLoading', isLoading)
 }

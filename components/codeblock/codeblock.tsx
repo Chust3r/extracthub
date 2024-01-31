@@ -1,16 +1,17 @@
 'use client'
 
-import { store, updateStore } from '@/stores/scrapper-store'
-import { store as codeStore } from '@/stores/config-store'
+import { ScraperStore, updateStore } from '@/stores/scrapper-store'
+import { ConfigStore} from '@/stores/config-store'
 import { useStore } from '@nanostores/react'
 import Code from 'react-syntax-highlighter'
 import { a11yDark as style } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import CopyToClipboard from '../copy-to-clipboard'
 import { useEffect } from 'react'
+import CodebloLoader from './codeblock-loader'
 
 const Codeblock = () => {
-	const { isLoading, data } = useStore(store)
-	const { showLineNumbers, wrapLongLines } = useStore(codeStore)
+	const { isLoading, data } = useStore(ScraperStore)
+	const { showLineNumbers, wrapLongLines } = useStore(ConfigStore)
 
 	useEffect(() => {
 		return () => {
@@ -19,16 +20,20 @@ const Codeblock = () => {
 	}, [])
 
 	return (
-		<section className='relative w-full h-full px-2 py-3 bg-gradient-radial from-neutral-900/60'>
-			{isLoading && (
-				<div className='absolute inset-0 flex items-center justify-center w-full h-full'>
-					<span className='loader'></span>
-				</div>
-			)}
-
-			<div className='absolute flex justify-end w-full h-auto gap-1 px-4'>
-				<CopyToClipboard text={JSON.stringify(data, null, 3)} />
+		<section className='relative w-full h-full px-2 py-3 bg-neutral-900'>
+			
+			<div className='absolute top-0 left-0 flex gap-2 m-3'>
+				<span className='w-3 h-3 rounded-full bg-neutral-800' />
+				<span className='w-3 h-3 rounded-full bg-neutral-800' />
+				<span className='w-3 h-3 rounded-full bg-neutral-800' />
 			</div>
+
+			<CodebloLoader isLoading={isLoading} />
+
+			<CopyToClipboard
+				text={JSON.stringify(data, null, 3)}
+				className='absolute top-0 right-0 m-3'
+			/>
 
 			<Code
 				language='json'
