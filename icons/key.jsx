@@ -19,5 +19,3 @@ export const Key = ({ className = '', ...props }) => {
 		</svg>
 	)
 }
-
-export default Key

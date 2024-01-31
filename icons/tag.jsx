@@ -25,6 +25,4 @@ export const Tag = ({ className = '', ...props }) => {
 	)
 }
 
-export default Tag
-
 

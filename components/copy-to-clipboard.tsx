@@ -1,8 +1,8 @@
+import { Check, Clipboard } from '@/icons'
+import { clipboard } from '@/lib/clipboard'
+import { cn } from '@/lib/utils'
 import { useState } from 'react'
 import { Button } from './ui/button'
-import { Clipboard, Check } from '@/icons'
-import { cn } from '@/lib/utils'
-import { clipboard } from '@/lib/clipboard'
 
 interface Props {
 	className?: string

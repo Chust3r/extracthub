@@ -19,5 +19,3 @@ export const Trash = ({ className = '', ...props }) => {
 		</svg>
 	)
 }
-
-export default Trash

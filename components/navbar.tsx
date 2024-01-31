@@ -1,7 +1,6 @@
-import Link from 'next/link'
-import React from 'react'
-import { Config } from './config'
 import { ExtractHub } from '@/icons'
+import Link from 'next/link'
+import { Config } from './config'
 
 const Navbar = () => {
 	return (

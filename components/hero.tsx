@@ -1,9 +1,10 @@
+import { Github } from '@/icons'
 import Link from 'next/link'
 import { Button } from './ui'
 
 const Hero = () => {
 	return (
-		<section className='relative flex h-[31.25rem] w-full flex-col items-center justify-center gap-7 '>
+		<section className='relative flex h-[31.25rem] w-full flex-col items-center justify-center gap-7 max-w-6xl mx-auto'>
 			<span className='absolute -top-80 -z-[1] h-full w-3/4 bg-gradient-radial from-neutral-800 to-slate-500/50 opacity-20 blur-3xl'></span>
 
 			<span className='absolute left-0 -z-[1] h-full w-96 bg-gradient-radial from-neutral-800 to-slate-500/50 rotate-90 blur-3xl opacity-20'></span>
@@ -31,6 +32,14 @@ const Hero = () => {
 						Scrap now
 					</span>
 				</Button>
+			</Link>
+			<Link
+				href='https://github.com/Chust3r/json-scrapper'
+				target='_blank'
+				tabIndex={-1}
+				className='absolute top-0 right-0 m-3'
+			>
+				<Github />
 			</Link>
 		</section>
 	)

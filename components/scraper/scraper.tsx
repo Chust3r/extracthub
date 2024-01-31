@@ -1,28 +1,27 @@
 'use client'
-import ScraperForm from '@/components/scraper/scraper-form'
 import Codeblock from '@/components/codeblock/codeblock'
+import ScraperForm from '@/components/scraper/scraper-form'
 import {
 	ResizableHandle,
 	ResizablePanel,
 	ResizablePanelGroup,
 } from '@/components/ui/resizable'
+import { ConfigStore } from '@/stores/config-store'
 import { useStore } from '@nanostores/react'
-import { store } from '@/stores/config-store'
 
 const Scraper = () => {
-	const { orientation } = useStore(store)
-	
+	const { orientation } = useStore(ConfigStore)
 
 	return (
 		<ResizablePanelGroup
 			direction={orientation}
 			className='h-full min-h-[500px] relative overflow-hidden'
 		>
-			<ResizablePanel className='min-w-[600px]'>
+			<ResizablePanel minSize={30}>
 				<ScraperForm />
 			</ResizablePanel>
 			<ResizableHandle withHandle />
-			<ResizablePanel className='min-w-[250px]'>
+			<ResizablePanel minSize={15}>
 				<Codeblock />
 			</ResizablePanel>
 		</ResizablePanelGroup>

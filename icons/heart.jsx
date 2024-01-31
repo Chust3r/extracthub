@@ -20,4 +20,3 @@ export const Heart = ({ className = '', ...props }) => {
 	)
 }
 
-export default Heart

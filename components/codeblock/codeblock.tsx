@@ -1,12 +1,12 @@
 'use client'
 
+import { ConfigStore } from '@/stores/config-store'
 import { ScraperStore, updateStore } from '@/stores/scrapper-store'
-import { ConfigStore} from '@/stores/config-store'
 import { useStore } from '@nanostores/react'
+import { useEffect } from 'react'
 import Code from 'react-syntax-highlighter'
 import { a11yDark as style } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import CopyToClipboard from '../copy-to-clipboard'
-import { useEffect } from 'react'
 import CodebloLoader from './codeblock-loader'
 
 const Codeblock = () => {

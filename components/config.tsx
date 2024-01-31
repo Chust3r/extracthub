@@ -1,16 +1,13 @@
 'use client'
 
-import { Switch } from './ui/switch'
-import { PopoverContent, PopoverTrigger } from '@radix-ui/react-popover'
-import { Popover } from './ui/popover'
-import { Button } from './ui/button'
 import { Cog, Horizontal, Vertical } from '@/icons'
-import { store, updateStore } from '@/stores/config-store'
-import { useStore } from '@nanostores/react'
 import { cn } from '@/lib/utils'
+import { ConfigStore, updateStore } from '@/stores/config-store'
+import { useStore } from '@nanostores/react'
+import { Button, Popover, PopoverContent, PopoverTrigger, Switch } from './ui'
 
 export const Config = () => {
-	const { showLineNumbers, wrapLongLines, orientation } = useStore(store)
+	const { showLineNumbers, wrapLongLines, orientation } = useStore(ConfigStore)
 
 	return (
 		<Popover>
@@ -74,7 +71,7 @@ export const Config = () => {
 				<div className='z-10 flex items-center justify-between'>
 					<label
 						htmlFor='switch-wrap-long-lines'
-						className='text-sm font-medium text-foreground duration-300 cursor-pointer'
+						className='text-sm font-medium duration-300 cursor-pointer text-foreground'
 					>
 						Wrap long lines
 					</label>

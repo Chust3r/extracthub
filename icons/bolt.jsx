@@ -20,4 +20,3 @@ export const Bolt = ({ className = '', ...props }) => {
 	)
 }
 
-export default Bolt

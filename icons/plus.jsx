@@ -20,4 +20,3 @@ export const Plus = ({ className = '', ...props }) => {
 	)
 }
 
-export default Plus

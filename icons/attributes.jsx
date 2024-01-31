@@ -20,4 +20,3 @@ export const Attributes = ({ className = '', ...props }) => {
 	)
 }
 
-export default Attributes

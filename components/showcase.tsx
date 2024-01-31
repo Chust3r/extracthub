@@ -1,8 +1,3 @@
-import Image from 'next/image'
-import React from 'react'
-import img1 from '@/public/images/1.png'
-import img2 from '@/public/images/2.png'
-import Ticker from './ticker'
 import {
 	Adidas,
 	Amazon,
@@ -14,11 +9,15 @@ import {
 	Wordpress,
 	Youtube,
 } from '@/icons'
+import img1 from '@/public/images/1.png'
+import img2 from '@/public/images/2.png'
+import Image from 'next/image'
 import ShinnyWrapper from './shinny-wrapper'
+import Ticker from './ticker'
 
 const Showcase = () => {
 	return (
-		<section className='flex flex-col w-full max-w-6xl gap-20 py-5 mx-auto px-9'>
+		<section className='flex flex-col w-full gap-20 py-5 px-9'>
 			<ShinnyWrapper
 				className='mx-auto overflow-hidden rounded-md intersect:animate-fade-up intersect:delay-1000 intersect-once'
 				style={{
@@ -49,10 +48,10 @@ const Showcase = () => {
 
 			<div className='flex flex-col justify-between w-full gap-5 md:flex-row md:gap-10'>
 				<h2 className='text-4xl text-foreground/70  w-full md:w-[80ch] text-balance font-medium intersect:animate-fade-right intersect:animate-delay-300 intersect-once'>
-					Who said that{' '}
-					<span className='text-transparent bg-flow animate-flow bg-clip-text'>
+					Who said that
+					<span className='px-2 text-transparent bg-flow animate-flow bg-clip-text'>
 						extracting
-					</span>{' '}
+					</span>
 					data is boring?
 				</h2>
 				<p className='text-pretty text-foreground/50 intersect:animate-fade-left intersect:animate-delay-300 intersect-once'>
@@ -78,7 +77,7 @@ const Showcase = () => {
 			</Ticker>
 
 			<h3 className='ml-auto text-3xl font-medium text-foreground/70 intersect:animate-fade-left intersect:animate-delay-300 text-balance intersect-once'>
-				Extract data from{' '}
+				Extract data from
 				<span className='text-transparent uppercase bg-flow animate-flow bg-clip-text'>
 					anywhere
 				</span>

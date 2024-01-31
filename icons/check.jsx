@@ -20,4 +20,4 @@ export const Check = ({ className = '', ...props }) => {
 	)
 }
 
-export default Check
+

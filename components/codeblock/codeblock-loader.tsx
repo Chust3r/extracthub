@@ -1,5 +1,3 @@
-import React from 'react'
-
 const CodeblockLoader = ({ isLoading = false }: { isLoading: boolean }) => {
 	if (!isLoading) return null
 	return (

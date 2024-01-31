@@ -24,5 +24,3 @@ export const Cog = ({ className = '', ...props }) => {
 		</svg>
 	)
 }
-
-export default Cog

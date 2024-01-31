@@ -1,24 +1,24 @@
 'use client'
+import { scraper } from '@/actions/playwright-scraper'
 import {
+	Button,
 	Form,
+	FormControl,
 	FormField,
 	FormItem,
-	FormControl,
 	FormMessage,
 	Input,
-	Button,
 } from '@/components/ui'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { schemaValidation } from './scraper-schema'
-import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form'
-import { ScraperStore, updateStore } from '@/stores/scrapper-store'
+import { Key, Plus, Tag } from '@/icons'
 import { adapater } from '@/lib/scraper-adapter'
-import { Tag, Key, Plus } from '@/icons'
-import { scraper } from '@/actions/playwright-scraper'
-import { FormValues, Field } from '@/types/scraper-types'
+import { ScraperStore, updateStore } from '@/stores/scrapper-store'
+import { Field, FormValues } from '@/types/scraper-types'
+import { yupResolver } from '@hookform/resolvers/yup'
 import { useStore } from '@nanostores/react'
-import ConfigItem from './config-item'
+import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form'
 import Navbar from '../navbar'
+import ConfigItem from './config-item'
+import { schemaValidation } from './scraper-schema'
 
 const defaultValues: Field[] = [
 	{

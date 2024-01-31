@@ -1,21 +1,21 @@
 'use client'
 
+import { Attributes, Bolt, Cog, Multiple, Trash } from '@/icons'
+import { FormValues } from '@/types/scraper-types'
+import { UseFormReturn } from 'react-hook-form'
 import { Button } from '../ui/button'
-import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import {
 	Form,
+	FormControl,
+	FormDescription,
 	FormField,
 	FormItem,
 	FormLabel,
 	FormMessage,
-	FormControl,
-	FormDescription,
 } from '../ui/form'
 import { Input } from '../ui/input'
-import { UseFormReturn } from 'react-hook-form'
-import { FormValues } from '@/types/scraper-types'
+import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import { Switch } from '../ui/switch'
-import { Cog, Attributes, Bolt, Multiple, Trash } from '@/icons'
 
 interface ComponentProps {
 	index: number

@@ -19,5 +19,3 @@ export const Clipboard = ({ className = '', ...props }) => {
 		</svg>
 	)
 }
-
-export default Clipboard
